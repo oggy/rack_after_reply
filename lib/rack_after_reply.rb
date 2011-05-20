@@ -37,3 +37,16 @@ module RackAfterReply
 end
 
 RackAfterReply.apply
+
+# The web server library may not be loaded until we've instantiated the Rack
+# handler (e.g., Rails 3.0's console command when no server argument is given),
+# so call apply once we know that has happened too.
+Rack::Server.class_eval do
+  def server_with_rack_after_reply
+    result = server_without_rack_after_reply
+    RackAfterReply.apply
+    result
+  end
+
+  RackAfterReply.freedom_patch(self, :server)
+end
