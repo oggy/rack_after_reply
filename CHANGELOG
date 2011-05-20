@@ -1,3 +1,7 @@
+== LATEST
+
+ * Handle RackAfterReply being loaded before web server library.
+
 == 0.0.1 2011-05-10
 
  * Hi.
