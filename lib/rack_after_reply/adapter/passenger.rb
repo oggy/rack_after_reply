@@ -12,9 +12,9 @@ module RackAfterReply
           RackAfterReply.freedom_patch self, :initialize
 
           def accept_and_process_next_request_with_rack_after_reply(socket_wrapper, channel, buffer)
-            returning accept_and_process_next_request_without_rack_after_reply(socket_wrapper, channel, buffer) do
-              fire_rack_after_reply
-            end
+            response = accept_and_process_next_request_without_rack_after_reply(socket_wrapper, channel, buffer)
+            fire_rack_after_reply
+            response
           end
           RackAfterReply.freedom_patch self, :accept_and_process_next_request
         end
