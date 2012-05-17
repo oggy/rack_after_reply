@@ -1,4 +1,4 @@
-== LATEST
+== 0.0.3 2012-05-17
 
  * Fix Passenger restarting workers unnecessarily. [Julien Letessier]
 
