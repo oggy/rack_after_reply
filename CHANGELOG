@@ -1,3 +1,7 @@
+== LATEST
+
+ * Fix Passenger restarting workers unnecessarily. [Julien Letessier]
+
 == 0.0.2 2011-05-20
 
  * Handle RackAfterReply being loaded before web server library.
